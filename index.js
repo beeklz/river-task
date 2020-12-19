@@ -1,14 +1,13 @@
 "use strict";
 
-// Task
-
-let task = "Press D (default) to show FS by it's default.\n";
-task += "Tip: after pressing D button should be shown the default structure\n";
-task += "Press S (sorting) to show FS by 'folders-first' prototype.\n";
-task += "Press R (random) to mix the FS.\n";
-task += "Tip: after pressing R button FS must be every time different.";
-
-console.log(task);
+// --*-- Task (FS sorting) --*--
+console.log(
+  "Press D (default) to show FS by it's default.\n"
+  + "Tip: pressing D button must show the default structure\n"
+  + "Press S (sorting) to show FS by 'folders-first' prototype.\n"
+  + "Press R (random) to mix the FS.\n"
+  + "Tip: result of pressing R button must be every time different."
+);
 
 let folders = {
   items: [
@@ -41,9 +40,9 @@ function showSplitter(string) {
   );
 }
 
-// Solution
+// --*-- Solution --*--
 
-// if button "D" pressed, sort files by default
+// Sort files by default by pressing D
 function sortByDefault() {
   showSplitter(`Pressed key: ${keyPressed}`);
   for (const item of folders.items) {
@@ -51,7 +50,7 @@ function sortByDefault() {
   }
 }
 
-// if button "R" pressed, sort files randomly
+// Sort files randomly by pressing R
 function sortRandomly() {
   showSplitter(`Pressed key: ${keyPressed}`);
 
@@ -68,8 +67,7 @@ function sortRandomly() {
   }
 }
 
-// if button "S" pressed, sort by the algorithm:
-// show folders first, then files
+// Sort files by folder-first by pressing S
 function sortByFolders() {
   showSplitter(`Pressed key: ${keyPressed}`);
   // print folders
@@ -82,7 +80,7 @@ function sortByFolders() {
   });
 }
 
-let keyPressed;
+let keyPressed; // record pressed button
 
 document.addEventListener("keydown", (event) => {
   if (event.code == "KeyD" && event.key == "d") {
